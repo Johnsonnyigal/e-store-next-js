@@ -1,10 +1,10 @@
 import AddProduct from "@/app/components/AddProduct";
+import AdminDashboard from "@/app/components/AdminDashboard";
 
 const page = () => {
   return (
     <div>
-      <h1>Add Product Page</h1>
-      <AddProduct />
+      <AdminDashboard title="Add Product Page" CenterProp={AddProduct} />
     </div>
   );
 };

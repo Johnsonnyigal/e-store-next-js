@@ -35,45 +35,52 @@ const AddProduct = () => {
     } catch (error) {
       console.error("Error submitting form:", error);
     }
-    router.push("/api/products");
+    router.push("/admin/products");
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <label>
-        Product Name:
-        <input
-          name="name"
-          type="text"
-          value={fields.name}
-          required
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <label>
-        Category Name:
-        <input
-          name="category"
-          type="text"
-          value={fields.category}
-          onChange={handleInputChange}
-          required
-        />
-      </label>
-      <br />
-      <label>
-        Price:
-        <input
-          name="price"
-          type="number"
-          value={fields.price}
-          onChange={handleInputChange}
-          required
-        />
-      </label>
-      <br />
-      <button type="submit">Submit</button>
+    <form onSubmit={handleFormSubmit} className="space-y-4 py-4 px-3">
+      <div className="flex flex-col gap-3">
+        <label>
+          Product Name:
+          <input
+            name="name"
+            type="text"
+            value={fields.name}
+            required
+            onChange={handleInputChange}
+          />
+        </label>
+
+        <label>
+          Category Name:
+          <input
+            name="category"
+            type="text"
+            value={fields.category}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
+
+        <label>
+          Price:
+          <input
+            name="price"
+            type="number"
+            value={fields.price}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
+
+        <button
+          type="submit"
+          className=" bg-blue-700 justify-start w-16 text-white rounded-md py-2 px-2"
+        >
+          Submit
+        </button>
+      </div>
     </form>
   );
 };
