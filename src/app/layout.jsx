@@ -1,7 +1,5 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import Navbar from "./components/Navbar";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +9,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <div className="min-h-screen flex flex-col ">
+          <Navbar />
+          {children}
+          <footer className="footer footer-center p-4 bg-base-300 text-base-content">
+            <p>Copyright © 2024 - All right reserved by Amz</p>
+          </footer>
+        </div>
+      </body>
     </html>
   );
 }
