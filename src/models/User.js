@@ -6,12 +6,16 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    username: {
+    password: {
       type: String,
       required: true,
     },
     image: {
       type: String,
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
     },
   },
 

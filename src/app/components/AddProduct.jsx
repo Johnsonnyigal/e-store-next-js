@@ -26,7 +26,6 @@ const AddProduct = () => {
       formData.append("name", fields.name);
       formData.append("category", fields.category);
       formData.append("price", fields.price);
-      console.log(formData);
 
       await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/products`, {
         method: "POST",

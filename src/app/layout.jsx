@@ -1,4 +1,5 @@
 import "./globals.css";
+import toast from "react-hot-toast";
 import Navbar from "./components/Navbar";
 
 export const metadata = {
