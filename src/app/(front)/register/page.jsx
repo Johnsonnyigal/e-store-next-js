@@ -2,8 +2,10 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function Register() {
+  const router = useRouter();
   const [fields, setFields] = useState({ email: "", password: "" });
 
   const handleFieldChange = (e) => {
@@ -23,17 +25,20 @@ export default function Register() {
       formData.append("password", fields.password);
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/users`,
+        `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/users/register`,
         {
           method: "POST",
           body: formData,
         }
       );
-      console.log(response);
+
       if (response.ok) {
         toast.success("Successfully created the user!");
       } else {
         toast.error("User already exists");
+        setTimeout(() => {
+          router.push("/signin");
+        }, 2000);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -45,7 +50,7 @@ export default function Register() {
       <section className="flex justify-between  mt-8 font-lato">
         <div className="col-span-3"></div>
         <div className="col-span-6 items-center">
-          <h1 className="font-bold text-2xl ">Sign in to your account</h1>
+          <h1 className="font-bold text-2xl ">Register your new account</h1>
           <div className="font-lato mt-4 flex gap-2">
             <p className="text-gray-500">A member?</p>
             <Link href="/signin" className="text-blue-700 font-bold">
